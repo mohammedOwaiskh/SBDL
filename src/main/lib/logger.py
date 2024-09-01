@@ -14,3 +14,9 @@ class Log4j(object):
 
     def debug(self, message):
         self.logger.debug(message)
+
+    def isDebugEnabled(self):
+        self.logger.isDebugEnabled()
+
+    def isInfoEnabled(self):
+        self.logger.isInfoEnabled()
