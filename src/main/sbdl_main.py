@@ -1,7 +1,10 @@
+import os
 import sys
 
 from lib.logger import Log4j
 import lib.utils as utils
+
+import businesslogic as bo
 
 
 if __name__ == "__main__":
@@ -15,5 +18,11 @@ if __name__ == "__main__":
     spark = utils.get_spark_session(env=job_run_env)
     log = Log4j(spark)
     log.info("Started Spark Application...")
+
+    accounts_file_path = os.path.join(
+        "src\\resources\\data\\accounts\\account_samples.csv"
+    )
+
+    accounts_df = bo.read_accounts_data(spark, accounts_file_path)
 
     log.info("Finished creating Spark Session")
