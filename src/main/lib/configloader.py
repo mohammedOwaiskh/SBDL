@@ -15,9 +15,14 @@ def get_spark_conf(env):
     spark_conf = SparkConf()
     config = configparser.ConfigParser()
     config.read("src/resources/conf/spark.conf")
+    print(config)
 
-    for key, val in config.items(env):
-        spark_conf.set(key, val)
+    # if config.get(env) is not None:
+    # return "HI"
+    # print("HI")
+
+    # for key, val in config.items(env) :
+    # spark_conf.set(key, val)
     return spark_conf
 
 

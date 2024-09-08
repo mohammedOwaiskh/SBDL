@@ -22,7 +22,13 @@ if __name__ == "__main__":
     accounts_file_path = os.path.join(
         "src\\resources\\data\\accounts\\account_samples.csv"
     )
+    party_file_path = os.path.join("src\\resources\\data\\parties\\party_samples.csv")
+    address_file_path = os.path.join(
+        "src\\resources\\data\\party_address\\address_samples.csv"
+    )
 
-    accounts_df = bo.read_accounts_data(spark, accounts_file_path)
+    accounts_df = bo.read_csv_data(spark, accounts_file_path)
+    party_df = bo.read_csv_data(spark, party_file_path)
+    address_df = bo.read_csv_data(spark, address_file_path)
 
     log.info("Finished creating Spark Session")
